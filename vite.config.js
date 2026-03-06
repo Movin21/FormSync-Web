@@ -1,7 +1,7 @@
 // vite.config.js
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: '/FormSync_Web/', 
-  plugins: [...]
-})
+  base: "/FormSync_Web/",
+  plugins: [],
+});
