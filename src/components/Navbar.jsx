@@ -1,15 +1,15 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const NAV_LINKS = [
-  { label: 'Features',    href: '#features'     },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Countdown',   href: '#countdown'    },
-  { label: 'Get Notified', href: '#signup'       },
+  { label: "Features", href: "#features" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Countdown", href: "#countdown" },
+  { label: "Get Notified", href: "#signup" },
 ];
 
 const Navbar = () => {
-  const [hidden,   setHidden]   = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const prevYRef = useRef(0);
@@ -25,28 +25,30 @@ const Navbar = () => {
       }
       prevYRef.current = y;
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
     <>
       <header
         className={[
-          'fixed top-0 left-0 right-0 z-50 transition-transform duration-300 will-change-transform',
-          scrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_2px_24px_rgba(168,85,247,0.10)]' : 'bg-transparent',
-          hidden ? '-translate-y-full' : 'translate-y-0',
-        ].join(' ')}
+          "fixed top-0 left-0 right-0 z-50 transition-transform duration-300 will-change-transform",
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-[0_2px_24px_rgba(168,85,247,0.10)]"
+            : "bg-transparent",
+          hidden ? "-translate-y-full" : "translate-y-0",
+        ].join(" ")}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2.5 group">
             <motion.img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="FormSync"
               className="h-11 w-auto"
               whileHover={{ scale: 1.06 }}
-              transition={{ type: 'spring', stiffness: 400 }}
+              transition={{ type: "spring", stiffness: 400 }}
             />
           </a>
 
@@ -77,9 +79,9 @@ const Navbar = () => {
               {/* Shimmer */}
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-                style={{ backgroundSize: '200% 100%' }}
-                animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                style={{ backgroundSize: "200% 100%" }}
+                animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "linear" }}
               />
             </motion.a>
           </div>
@@ -90,9 +92,24 @@ const Navbar = () => {
             onClick={() => setMenuOpen((v) => !v)}
             aria-label="Toggle menu"
           >
-            <span className="block w-5 h-0.5 bg-current mb-1 transition-all" style={{ transform: menuOpen ? 'rotate(45deg) translate(2px, 6px)' : '' }} />
-            <span className="block w-5 h-0.5 bg-current mb-1 transition-all" style={{ opacity: menuOpen ? 0 : 1 }} />
-            <span className="block w-5 h-0.5 bg-current transition-all"       style={{ transform: menuOpen ? 'rotate(-45deg) translate(2px, -6px)' : '' }} />
+            <span
+              className="block w-5 h-0.5 bg-current mb-1 transition-all"
+              style={{
+                transform: menuOpen ? "rotate(45deg) translate(2px, 6px)" : "",
+              }}
+            />
+            <span
+              className="block w-5 h-0.5 bg-current mb-1 transition-all"
+              style={{ opacity: menuOpen ? 0 : 1 }}
+            />
+            <span
+              className="block w-5 h-0.5 bg-current transition-all"
+              style={{
+                transform: menuOpen
+                  ? "rotate(-45deg) translate(2px, -6px)"
+                  : "",
+              }}
+            />
           </button>
         </div>
 
@@ -101,9 +118,9 @@ const Navbar = () => {
           {menuOpen && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
+              animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
               className="md:hidden overflow-hidden bg-white/95 backdrop-blur border-t border-brand-100"
             >
               <div className="px-4 py-3 flex flex-col gap-1">

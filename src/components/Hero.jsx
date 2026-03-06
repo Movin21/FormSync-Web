@@ -22,18 +22,21 @@ const calcTime = (target) => {
 };
 
 const HeroCountCell = ({ value, label }) => {
-  const display = String(value).padStart(2, '0');
+  const display = String(value).padStart(2, "0");
   return (
     <div className="flex flex-col items-center gap-2">
       <motion.div
         className="relative flex items-center justify-center rounded-2xl bg-white/80 backdrop-blur-md shadow-[0_8px_32px_rgba(168,85,247,0.18)] overflow-hidden"
         style={{
-          width: '88px',
-          height: '96px',
-          border: '1.5px solid rgba(168,85,247,0.25)',
+          width: "88px",
+          height: "96px",
+          border: "1.5px solid rgba(168,85,247,0.25)",
         }}
-        whileHover={{ scale: 1.05, boxShadow: '0 12px 40px rgba(168,85,247,0.30)' }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 12px 40px rgba(168,85,247,0.30)",
+        }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         {/* top gradient bar */}
         <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-brand-400 via-indigo-400 to-brand-400" />
@@ -42,14 +45,16 @@ const HeroCountCell = ({ value, label }) => {
         <motion.span
           key={display}
           initial={{ opacity: 0, y: 14, scale: 0.85 }}
-          animate={{ opacity: 1, y: 0,  scale: 1 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="relative z-10 text-5xl font-extrabold tabular-nums tracking-tight text-neutral-900"
         >
           {display}
         </motion.span>
       </motion.div>
-      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-500">{label}</span>
+      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-500">
+        {label}
+      </span>
     </div>
   );
 };
@@ -102,7 +107,11 @@ const Hero = ({ launchDate }) => {
         >
           {/* Logo above badge */}
           <motion.div variants={fadeUp} className="mb-4 flex justify-center">
-            <img src="/logo.png" alt="FormSync" className="h-8 w-auto" />
+            <img
+              src={`${import.meta.env.BASE_URL}logo.png`}
+              alt="FormSync"
+              className="h-8 w-auto"
+            />
           </motion.div>
 
           {/* Launching badge */}
@@ -161,19 +170,33 @@ const Hero = ({ launchDate }) => {
               </div>
               <div className="flex items-center justify-center gap-3 sm:gap-4">
                 {CELLS.map((cell, i) => (
-                  <div key={cell.key} className="flex items-center gap-3 sm:gap-4">
-                    <HeroCountCell value={timeLeft[cell.key]} label={cell.label} />
+                  <div
+                    key={cell.key}
+                    className="flex items-center gap-3 sm:gap-4"
+                  >
+                    <HeroCountCell
+                      value={timeLeft[cell.key]}
+                      label={cell.label}
+                    />
                     {i < CELLS.length - 1 && (
                       <div className="flex flex-col gap-2 mb-5">
                         <motion.span
                           className="block w-1.5 h-1.5 rounded-full bg-brand-300"
                           animate={{ opacity: [1, 0.2, 1] }}
-                          transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
                         />
                         <motion.span
                           className="block w-1.5 h-1.5 rounded-full bg-brand-300"
                           animate={{ opacity: [0.2, 1, 0.2] }}
-                          transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+                          transition={{
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
                         />
                       </div>
                     )}

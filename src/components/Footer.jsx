@@ -23,7 +23,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="flex flex-col items-center gap-2 sm:items-start">
             <a href="#" className="flex items-center gap-2">
-              <img src="/logo.png" alt="FormSync" className="h-7 w-auto" />
+              <img
+                src={`${import.meta.env.BASE_URL}logo.png`}
+                alt="FormSync"
+                className="h-7 w-auto"
+              />
             </a>
             <p className="text-xs text-neutral-400 max-w-[200px] text-center sm:text-left">
               Schema-driven automation for modern applications.
