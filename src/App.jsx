@@ -7,7 +7,7 @@ import HowItWorks from "./components/HowItWorks";
 import Navbar from "./components/Navbar";
 
 const App = () => {
-  const launchDate = "2026-03-17T09:00:00Z";
+  const launchDate = "2026-03-20T09:00:00Z";
 
   return (
     <div className="relative min-h-screen bg-white text-neutral-900">
