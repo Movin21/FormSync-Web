@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-brand: #9333ea;
+  --color-brand-light: #f3e8ff;
+  --shadow-glow: 0 0 40px rgba(168, 85, 247, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #ffffff;
+  color: #0f0a1e;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(168, 85, 247, 0.2);
+  color: #6b21a8;
+}
+
+/* Custom scroll bar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f3e8ff;
+}
+::-webkit-scrollbar-thumb {
+  background: #c084fc;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card-purple {
+  background: rgba(243, 232, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(168, 85, 247, 0.20);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #9333ea 0%, #6366f1 50%, #7c3aed 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Section stripe */
+.section-stripe {
+  background: linear-gradient(180deg, #faf5ff 0%, #f3e8ff 100%);
+}
+
+@keyframes digitFlip {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+/* ── Background animation keyframes ───────────────────────────────── */
+
+/* Orbital float — large orbs drift in gentle elliptical paths */
+@keyframes orbitFloat1 {
+  0%,100% { transform: translate(  0px,   0px) scale(1.00); }
+  25%     { transform: translate( 55px, -48px) scale(1.04); }
+  50%     { transform: translate( 78px,  22px) scale(0.97); }
+  75%     { transform: translate( 18px,  58px) scale(1.02); }
+}
+@keyframes orbitFloat2 {
+  0%,100% { transform: translate(  0px,   0px) scale(1.00); }
+  30%     { transform: translate(-68px,  38px) scale(1.05); }
+  60%     { transform: translate(-28px, -52px) scale(0.95); }
+  80%     { transform: translate(-58px,  10px) scale(1.03); }
+}
+@keyframes orbitFloat3 {
+  0%,100% { transform: translate(  0px,   0px); }
+  35%     { transform: translate( 44px, -34px); }
+  68%     { transform: translate(-30px,  38px); }
+}
+
+/* Central hero spotlight breathes */
+@keyframes spotlightBreath {
+  0%,100% { opacity: 0.65; }
+  50%     { opacity: 1.00; }
+}
+
+/* Dot-matrix grid shimmer */
+@keyframes gridShimmer {
+  0%,100% { opacity: 0.038; }
+  50%     { opacity: 0.072; }
+}
+
+/* Expanding arc waves — half-circle, soft fade */
+@keyframes expandRing {
+  0%   { transform: scale(0.40); opacity: 0.70; }
+  55%  { opacity: 0.28; }
+  100% { transform: scale(2.10); opacity: 0;    }
+}
+
+/* Rising star particles — float upward and fade */
+@keyframes riseParticle {
+  0%   { opacity: 0;    transform: translateY(  0px) scale(0.7); }
+  12%  { opacity: 0.80; }
+  75%  { opacity: 0.35; transform: translateY(-110px) scale(1.1); }
+  100% { opacity: 0;    transform: translateY(-160px) scale(0.6); }
+}
+
+/* Horizontal laser scan line — sweeps top to bottom */
+@keyframes laserScan {
+  0%   { top: 0%; }
+  100% { top: 100%; }
+}
+
+/* Legacy — kept for CountdownTimer digit flip */
+@keyframes digitFlip {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes gradientShift {
+  0%,100% { background-position: 0%   50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes pulseSoft {
+  0%,100% { opacity: 1;    }
+  50%      { opacity: 0.55; }
+}
+.animate-pulseSoft {
+  animation: pulseSoft 2.4s ease-in-out infinite;
+}
+
+/* ── Remove overflow-x at root level ──────────────────────────────── */
+html, body {
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
