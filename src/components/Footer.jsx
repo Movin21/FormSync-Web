@@ -1,49 +1,51 @@
-import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Github, Twitter } from 'lucide-react';
 
 const SOCIAL = [
-  { href: "#", icon: Twitter, label: "Twitter" },
-  { href: "#", icon: Github, label: "GitHub" },
-  { href: "#", icon: Linkedin, label: "LinkedIn" },
+  { href: '#', icon: Twitter, label: 'Twitter' },
+  { href: 'https://github.com/YasasLakmina/FormSync', icon: Github, label: 'GitHub' },
 ];
 
 const LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Get Access", href: "#signup" },
+  { label: 'Domain',        to: '/domain' },
+  { label: 'Milestones',    to: '/milestones' },
+  { label: 'Documents',     to: '/documents' },
+  { label: 'Presentations', to: '/presentations' },
+  { label: 'About Us',      to: '/about' },
+  { label: 'Contact Us',    to: '/contact' },
 ];
 
 const Footer = () => {
   const year = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-neutral-100 bg-white">
+    <footer className="relative z-10 border-t border-neutral-100 bg-white/80 backdrop-blur-sm">
       <div className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8">
         <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
           {/* Brand */}
           <div className="flex flex-col items-center gap-2 sm:items-start">
-            <a href="#" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <img
                 src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="FormSync"
                 className="h-7 w-auto"
               />
-            </a>
-            <p className="text-xs text-neutral-400 max-w-[200px] text-center sm:text-left">
-              Schema-driven automation for modern applications.
+            </Link>
+            <p className="text-xs text-neutral-400 max-w-[220px] text-center sm:text-left">
+              AI-Powered Cross-Platform Form Generator — Research Project.
             </p>
           </div>
 
           {/* Nav links */}
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {LINKS.map((l) => (
-              <a
+              <Link
                 key={l.label}
-                href={l.href}
+                to={l.to}
                 className="text-sm text-neutral-500 hover:text-brand-600 transition-colors"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -65,7 +67,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 border-t border-neutral-100 pt-6 text-center text-xs text-neutral-400">
-          &copy; {year} FormSync. All rights reserved.
+          &copy; {year} FormSync Research Group. All rights reserved.
         </div>
       </div>
     </footer>

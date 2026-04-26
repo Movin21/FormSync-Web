@@ -1,27 +1,26 @@
-import BackgroundEffects from "./components/BackgroundEffects";
-import EmailSignup from "./components/EmailSignup";
-import Features from "./components/Features";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero";
-import HowItWorks from "./components/HowItWorks";
-import Navbar from "./components/Navbar";
+import { Routes, Route } from 'react-router-dom';
+import PageWrapper from './components/PageWrapper';
+import HomePage from './pages/HomePage';
+import DomainPage from './pages/DomainPage';
+import MilestonesPage from './pages/MilestonesPage';
+import DocumentsPage from './pages/DocumentsPage';
+import PresentationsPage from './pages/PresentationsPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 
 const App = () => {
-  const launchDate = "2026-03-20T09:00:00Z";
-
   return (
-    <div className="relative min-h-screen bg-white text-neutral-900">
-      <BackgroundEffects />
-      <Navbar />
-
-      <div className="relative z-10">
-        <Hero launchDate={launchDate} />
-        <Features />
-        <HowItWorks />
-        <EmailSignup />
-        <Footer />
-      </div>
-    </div>
+    <PageWrapper>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/domain" element={<DomainPage />} />
+        <Route path="/milestones" element={<MilestonesPage />} />
+        <Route path="/documents" element={<DocumentsPage />} />
+        <Route path="/presentations" element={<PresentationsPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+    </PageWrapper>
   );
 };
 

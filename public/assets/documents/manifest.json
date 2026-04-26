@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Individual Proposal Report — D. M. T. V. Dissanayake (IT22003546)",
+    "file": "Proposal Report - IT22003546.pdf",
+    "type": "PDF",
+    "date": "2026-01-18",
+    "description": "Individual research proposal report by D. M. T. V. Dissanayake (Team Leader). Covers the Schema Enhancement Engine component scope, objectives, and planned methodology.",
+    "available": true
+  },
+  {
+    "name": "Individual Proposal Report — T. S. Gunawardena (IT22350114)",
+    "file": "Proposal Report - IT22350114.pdf",
+    "type": "PDF",
+    "date": "2026-01-18",
+    "description": "Individual research proposal report by T. S. Gunawardena. Covers the cross-platform form generation component scope, objectives, and planned methodology.",
+    "available": true
+  },
+  {
+    "name": "Individual Proposal Report — M. I. H. Liyanage (IT22332608)",
+    "file": "Proposal Report - IT22332608.pdf",
+    "type": "PDF",
+    "date": "2026-01-18",
+    "description": "Individual research proposal report by M. I. H. Liyanage. Covers the backend DTO and API generation component scope, objectives, and planned methodology.",
+    "available": true
+  },
+  {
+    "name": "Individual Progress Report 1 — P. H. Y. L. Rajapakshe (IT22305350)",
+    "file": "Progress Report 1- IT22305350.pdf",
+    "type": "PDF",
+    "date": "2026-02-26",
+    "description": "Individual research progress report 1 by P. H. Y. L. Rajapakshe. Covers the test case generation and quality evaluation component progress and methodology.",
+    "available": true
+  },
+  {
+    "name": "Research Paper",
+    "file": "436 - FormSync Research Paper.pdf",
+    "type": "PDF",
+    "date": "2026-04-10",
+    "description": "Comprehensive research paper documenting the full system design, implementation, evaluation results, and contributions of the AI-Powered Cross-Platform Form Generator.",
+    "available": true
+  },
+  {
+    "name": "Final Research Log",
+    "file": "Research_Log.pdf",
+    "type": "PDF",
+    "date": null,
+    "description": "Detailed research activity log maintained throughout the project lifecycle. Documents all key decisions, experiments, and findings.",
+    "available": false
+  }
+]

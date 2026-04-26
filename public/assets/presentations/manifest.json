@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Proposal Presentation",
+    "file": "Proposal Presentation.pptx",
+    "type": "PPTX",
+    "category": "Proposal",
+    "date": "2026-01-20",
+    "description": "Proposal defense slides presenting the research problem, objectives, and planned methodology for the AI-Powered Cross-Platform Form Generator.",
+    "available": true
+  },
+  {
+    "name": "Progress Presentation 1",
+    "file": "Progress Presentation 1.pptx",
+    "type": "PPTX",
+    "category": "Progress",
+    "date": "2026-02-25",
+    "description": "First progress presentation covering completed literature review, research gap analysis, system architecture design, and initial prototype demonstration.",
+    "available": true
+  },
+  {
+    "name": "Progress Presentation 2",
+    "file": "Progress Presentation 2.pptx",
+    "type": "PPTX",
+    "category": "Progress",
+    "date": "2026-03-22",
+    "description": "Second progress presentation showcasing core system implementation, live demonstration, and preliminary evaluation results.",
+    "available": true
+  },
+  {
+    "name": "Final Presentation",
+    "file": "Final Presentation.pptx",
+    "type": "PPTX",
+    "category": "Final",
+    "date": null,
+    "description": "Final defense presentation with complete results, contributions, and future work. Coming soon.",
+    "available": false
+  }
+]
