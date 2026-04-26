@@ -9,8 +9,8 @@ const CONTACT_INFO = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'jeewaka.p@sliit.lk',
-    href: 'mailto:jeewaka.p@sliit.lk',
+    value: 'formSync@gmail.com',
+    href: 'mailto:formSync@gmail.com',
   },
   {
     icon: MapPin,

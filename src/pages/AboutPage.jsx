@@ -9,15 +9,23 @@ const TEAM_MEMBERS = [
   {
     name: 'D. M. T. V. Dissanayake',
     studentId: 'IT22003546',
-    role: 'Team Leader & Backend Developer',
+    role: 'Team Leader & Full-Stack Developer',
     email: 'IT22003546@my.sliit.lk',
     photo: 'Dissanayake D. M. T. V. (Leader)  IT22003546.jpg',
     specialisation: 'Schema Enhancement Engine & AI Integration',
   },
   {
+    name: 'P. H. Y. L. Rajapakshe',
+    studentId: 'IT22305350',
+    role: 'Full-Stack Developer',
+    email: 'IT22305350@my.sliit.lk',
+    photo: 'Rajapakshe P. H. Y. L. IT22305350.jpg',
+    specialisation: 'Test Case Generation & Quality Evaluation',
+  },
+  {
     name: 'T. S. Gunawardena',
     studentId: 'IT22350114',
-    role: 'Frontend Developer',
+    role: 'Full-Stack Developer',
     email: 'IT22350114@my.sliit.lk',
     photo: 'Gunawardena T. S. IT22350114.png',
     specialisation: 'Cross-Platform Form Generation (Web & Mobile)',
@@ -30,20 +38,13 @@ const TEAM_MEMBERS = [
     photo: 'Liyanage M. I. H. IT22332608.png',
     specialisation: 'Backend API Generation & Runtime Binding',
   },
-  {
-    name: 'P. H. Y. L. Rajapakshe',
-    studentId: 'IT22305350',
-    role: 'QA Engineer & Researcher',
-    email: 'IT22305350@my.sliit.lk',
-    photo: 'Rajapakshe P. H. Y. L. IT22305350.jpg',
-    specialisation: 'Test Case Generation & Quality Evaluation',
-  },
+  
 ];
 
 /* ─── Supervisor ────────────────────────────────────────────────── */
 const SUPERVISOR = {
   name: 'Mr. Jeewaka Perera',
-  role: 'Project Supervisor',
+  role: 'Research Supervisor',
   email: 'jeewaka.p@sliit.lk',
   department: 'Faculty of Computing — Computer Science, SLIIT',
   photo: 'Mr. Jeewaka Perera Lecturer Faculty of Computing Computer Science.jpg',
@@ -182,7 +183,7 @@ const AboutPage = () => {
       <section className="py-10 border-t border-neutral-100">
         <div className="mx-auto max-w-6xl px-5 sm:px-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-neutral-900">Project <span className="gradient-text">Supervisor</span></h2>
+            <h2 className="text-2xl font-bold text-neutral-900">Research <span className="gradient-text">Supervisor</span></h2>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
