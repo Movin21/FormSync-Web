@@ -12,7 +12,7 @@ const TEAM_MEMBERS = [
     role: 'Team Leader & Full-Stack Developer',
     email: 'IT22003546@my.sliit.lk',
     photo: 'Dissanayake D. M. T. V. (Leader)  IT22003546.jpg',
-    specialisation: 'Schema Enhancement Engine & AI Integration',
+    specialisation: 'Backend API Generation & Runtime Binding',
   },
   {
     name: 'P. H. Y. L. Rajapakshe',
@@ -20,7 +20,7 @@ const TEAM_MEMBERS = [
     role: 'Full-Stack Developer',
     email: 'IT22305350@my.sliit.lk',
     photo: 'Rajapakshe P. H. Y. L. IT22305350.jpg',
-    specialisation: 'Test Case Generation & Quality Evaluation',
+    specialisation: 'Schema Enhancement Engine & AI Integration',
   },
   {
     name: 'T. S. Gunawardena',
@@ -28,7 +28,7 @@ const TEAM_MEMBERS = [
     role: 'Full-Stack Developer',
     email: 'IT22350114@my.sliit.lk',
     photo: 'Gunawardena T. S. IT22350114.png',
-    specialisation: 'Cross-Platform Form Generation (Web & Mobile)',
+    specialisation: 'Frontend Form Generation (Web)',
   },
   {
     name: 'M. I. H. Liyanage',
@@ -36,7 +36,7 @@ const TEAM_MEMBERS = [
     role: 'Full-Stack Developer',
     email: 'IT22332608@my.sliit.lk',
     photo: 'Liyanage M. I. H. IT22332608.png',
-    specialisation: 'Backend API Generation & Runtime Binding',
+    specialisation: 'Test Case Generation & Quality Evaluation',
   },
   
 ];
@@ -49,6 +49,8 @@ const SUPERVISOR = {
   department: 'Faculty of Computing — Computer Science, SLIIT',
   photo: 'Mr. Jeewaka Perera Lecturer Faculty of Computing Computer Science.jpg',
 };
+
+
 
 /* ─── Card colour palette ───────────────────────────────────────── */
 const COLORS = [
