@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import {
   FileText, Download, Eye, Search, X, AlertCircle, Loader2, Filter, Clock,
 } from 'lucide-react';
-import { TEAM_MEMBERS } from '../data/teamData';
 
 /* ─── File type config ──────────────────────────────────────────── */
 const TYPE_CONFIG = {
@@ -210,26 +209,7 @@ const DocumentsPage = () => {
           {!loading && !error && (
             <div className="space-y-4">
               {filtered.map((doc, i) => (
-                <div key={doc.file}>
-                  {doc.name === 'Individual Research Thesis' && (
-                    <div className="mb-4 space-y-4">
-                      <p className="text-xs font-bold uppercase tracking-widest text-neutral-400 pt-2">Individual Research Thesis</p>
-                      {TEAM_MEMBERS.map((member, mi) => (
-                        <DocCard
-                          key={member.studentId}
-                          index={mi}
-                          doc={{
-                            name: `${member.name} — Individual Thesis`,
-                            type: 'PDF',
-                            description: member.specialisation,
-                            available: false,
-                          }}
-                        />
-                      ))}
-                    </div>
-                  )}
-                  <DocCard doc={doc} index={i} />
-                </div>
+                <DocCard key={doc.file} doc={doc} index={i} />
               ))}
             </div>
           )}

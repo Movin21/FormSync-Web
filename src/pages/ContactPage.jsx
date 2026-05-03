@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Mail, MapPin, Send, CheckCircle2, AlertCircle, Github, Loader2,
+  Mail, MapPin, Send, CheckCircle2, AlertCircle, Github, Loader2, Phone,
 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
@@ -9,6 +9,14 @@ const EMAILJS_SERVICE_ID         = 'service_h3n5fkq';
 const EMAILJS_TEMPLATE_NOTIFY    = 'template_38mfjzt';          // → sliitformgen@gmail.com
 const EMAILJS_TEMPLATE_AUTOREPLY = 'template_m35d68o'; // → sender's email
 const EMAILJS_PUBLIC_KEY         = '16jXY_I-ZrhtIEj0-';
+
+/* ─── Phone numbers ─────────────────────────────────────────────── */
+const PHONES = [
+  '+94 (70) 208 1860',
+  '+94 (71) 467 1906',
+  '+94 (71) 350 5391',
+  '+94 (72) 699 8321',
+];
 
 /* ─── Contact info ──────────────────────────────────────────────── */
 const CONTACT_INFO = [
@@ -165,6 +173,32 @@ const ContactPage = () => {
                 </div>
               </motion.a>
             ))}
+
+            {/* Phone numbers */}
+            <motion.div
+              initial={{ opacity: 0, x: -16 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.05 + CONTACT_INFO.length * 0.08, duration: 0.45 }}
+              className="flex items-start gap-3 p-4 rounded-xl border border-neutral-200 bg-white shadow-card"
+            >
+              <div className="w-10 h-10 rounded-xl bg-brand-50 border border-brand-100 flex items-center justify-center flex-shrink-0">
+                <Phone size={16} className="text-brand-600" />
+              </div>
+              <div>
+                <p className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 mb-1.5">Phone</p>
+                <div className="space-y-1">
+                  {PHONES.map((num) => (
+                    <a
+                      key={num}
+                      href={`tel:${num.replace(/\s|\(|\)|-/g, '')}`}
+                      className="block text-sm font-medium text-neutral-800 hover:text-brand-600 transition-colors"
+                    >
+                      {num}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
           </div>
 
           {/* Right — form */}
