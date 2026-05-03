@@ -1,5 +1,13 @@
 [
   {
+    "name": "IT4010 TAF — 2025 July Batch",
+    "file": "25-26J-436 IT4010-TAF-2025 July Batch.pdf",
+    "type": "PDF",
+    "date": "2025-07-01",
+    "description": "Task Allocation Form for the IT4010 Research Project — 2025 July Batch. Reference document 25-26J-436.",
+    "available": true
+  },
+  {
     "name": "Individual Proposal Report — D. M. T. V. Dissanayake (IT22003546)",
     "file": "Proposal Report - IT22003546.pdf",
     "type": "PDF",
@@ -37,6 +45,14 @@
     "type": "PDF",
     "date": "2026-04-10",
     "description": "Comprehensive research paper documenting the full system design, implementation, evaluation results, and contributions of the AI-Powered Cross-Platform Form Generator.",
+    "available": true
+  },
+  {
+    "name": "Research Thesis Draft",
+    "file": "25-26J-436_Research_Thesis_Draft.pdf",
+    "type": "PDF",
+    "date": null,
+    "description": "Draft research thesis document for the AI-Powered Cross-Platform Form Generator project. Reference 25-26J-436.",
     "available": true
   },
   {

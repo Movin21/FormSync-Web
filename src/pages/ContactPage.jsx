@@ -1,16 +1,22 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Mail, MapPin, Send, CheckCircle2, AlertCircle, Github,
+  Mail, MapPin, Send, CheckCircle2, AlertCircle, Github, Loader2,
 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
+const EMAILJS_SERVICE_ID         = 'service_h3n5fkq';
+const EMAILJS_TEMPLATE_NOTIFY    = 'template_38mfjzt';          // → sliitformgen@gmail.com
+const EMAILJS_TEMPLATE_AUTOREPLY = 'template_m35d68o'; // → sender's email
+const EMAILJS_PUBLIC_KEY         = '16jXY_I-ZrhtIEj0-';
 
 /* ─── Contact info ──────────────────────────────────────────────── */
 const CONTACT_INFO = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'formSync@gmail.com',
-    href: 'mailto:formSync@gmail.com',
+    value: 'sliitformgen@gmail.com',
+    href: 'mailto:sliitformgen@gmail.com',
   },
   {
     icon: MapPin,
@@ -60,7 +66,7 @@ const inputCls = (err) =>
 const ContactPage = () => {
   const [form, setForm]       = useState({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors]   = useState({});
-  const [status, setStatus]   = useState('idle'); // idle | success | error
+  const [status, setStatus]   = useState('idle'); // idle | sending | success | error
 
   const validate = () => {
     const e = {};
@@ -82,9 +88,23 @@ const ContactPage = () => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length) { setErrors(errs); return; }
-    setStatus('success');
-    setForm({ name: '', email: '', subject: '', message: '' });
-    setErrors({});
+    setStatus('sending');
+    const common = {
+      from_name:  form.name,
+      from_email: form.email,
+      subject:    form.subject,
+      message:    form.message,
+    };
+    Promise.all([
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_NOTIFY,    { ...common, to_email: 'sliitformgen@gmail.com' }, EMAILJS_PUBLIC_KEY),
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_AUTOREPLY, { ...common, to_email: form.email },               EMAILJS_PUBLIC_KEY),
+    ]).then(() => {
+      setStatus('success');
+      setForm({ name: '', email: '', subject: '', message: '' });
+      setErrors({});
+    }).catch(() => {
+      setStatus('error');
+    });
   };
 
   return (
@@ -201,7 +221,7 @@ const ContactPage = () => {
                           <input
                             id="name"
                             type="text"
-                            placeholder="John Doe"
+                            placeholder="Yasas Rajapakshe"
                             value={form.name}
                             onChange={handleChange}
                             className={inputCls(errors.name)}
@@ -211,7 +231,7 @@ const ContactPage = () => {
                           <input
                             id="email"
                             type="email"
-                            placeholder="john@example.com"
+                            placeholder="yasas@example.com"
                             value={form.email}
                             onChange={handleChange}
                             className={inputCls(errors.email)}
@@ -238,20 +258,33 @@ const ContactPage = () => {
                           className={`${inputCls(errors.message)} resize-none`}
                         />
                       </Field>
+                      {status === 'error' && (
+                        <div className="flex items-center gap-2 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
+                          <AlertCircle size={15} />
+                          Failed to send. Please try again or email us directly.
+                        </div>
+                      )}
                       <motion.button
                         type="submit"
-                        whileHover={{ scale: 1.02, boxShadow: '0 0 32px rgba(168,85,247,0.35)' }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition-all flex items-center justify-center gap-2"
+                        disabled={status === 'sending'}
+                        whileHover={status !== 'sending' ? { scale: 1.02, boxShadow: '0 0 32px rgba(168,85,247,0.35)' } : {}}
+                        whileTap={status !== 'sending' ? { scale: 0.98 } : {}}
+                        className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                       >
-                        <Send size={15} className="transition-transform group-hover:translate-x-0.5" />
-                        Send Message
-                        <motion.span
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                          style={{ backgroundSize: '200% 100%' }}
-                          animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
-                          transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
-                        />
+                        {status === 'sending' ? (
+                          <><Loader2 size={15} className="animate-spin" />Sending…</>
+                        ) : (
+                          <>
+                            <Send size={15} className="transition-transform group-hover:translate-x-0.5" />
+                            Send Message
+                            <motion.span
+                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                              style={{ backgroundSize: '200% 100%' }}
+                              animate={{ backgroundPosition: ['200% 0', '-200% 0'] }}
+                              transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
+                            />
+                          </>
+                        )}
                       </motion.button>
                     </motion.form>
                   )}

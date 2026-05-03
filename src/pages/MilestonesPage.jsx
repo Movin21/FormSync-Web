@@ -6,7 +6,7 @@ import { ChevronDown, Calendar, CheckCircle2, Clock, AlertCircle } from 'lucide-
 const MILESTONES = [
   {
     id: 'proposal',
-    title: 'Proposal',
+    title: 'Proposal Presentation',
     date: '2025-09-19',
     submissionDate: null,
     marks: 87,
@@ -67,7 +67,7 @@ const MILESTONES = [
   },
   {
     id: 'final',
-    title: 'Final PP & Viva',
+    title: 'Final Presentation & Viva',
     date: '2026-05-04',
     submissionDate: null,
     marks: null,

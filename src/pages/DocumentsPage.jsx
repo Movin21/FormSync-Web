@@ -211,7 +211,7 @@ const DocumentsPage = () => {
             <div className="space-y-4">
               {filtered.map((doc, i) => (
                 <div key={doc.file}>
-                  {doc.name === 'Final Research Log' && (
+                  {doc.name === 'Individual Research Thesis' && (
                     <div className="mb-4 space-y-4">
                       <p className="text-xs font-bold uppercase tracking-widest text-neutral-400 pt-2">Individual Research Thesis</p>
                       {TEAM_MEMBERS.map((member, mi) => (
