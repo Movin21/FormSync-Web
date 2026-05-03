@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { ExternalLink, Menu, X } from 'lucide-react';
 
 const NAV_LINKS = [
   { label: 'Home',          to: '/' },
@@ -82,6 +82,17 @@ const Navbar = () => {
                 </NavLink>
               </motion.div>
             ))}
+            <motion.a
+              href="http://54.211.203.36:5173/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.04, boxShadow: '0 0 24px rgba(168,85,247,0.30)' }}
+              whileTap={{ scale: 0.97 }}
+              className="ml-3 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-brand-600 to-indigo-600 px-4 py-2 text-xs font-semibold text-white shadow-sm transition-all"
+            >
+              FormSync.org
+              <ExternalLink size={11} className="opacity-80" />
+            </motion.a>
           </nav>
 
           {/* Mobile hamburger */}
