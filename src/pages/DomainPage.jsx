@@ -183,11 +183,11 @@ const SECTIONS = [
       },
       {
         category: 'Frontend (Web)',
-        items: ['React 18', 'Vite', 'Tailwind CSS 3', 'Framer Motion', 'React Router v6', 'Lucide Icons'],
+        items: ['React 18', 'Vite', 'Tailwind CSS 3', 'Framer Motion', 'React Router v6', 'Lucide Icons', "HTML", "Bootstrap" ],
       },
       {
         category: 'Backend Microservices',
-        items: ['Spring Boot 3', 'Spring Cloud Gateway', 'Spring Data JPA', 'OpenAPI/Swagger'],
+        items: ['Spring Boot 3', 'Spring Cloud Gateway', 'Spring Data JPA', 'OpenAPI/Swagger', ".NET", "Node.js"],
       },
       {
         category: 'AI & LLM Integration',
