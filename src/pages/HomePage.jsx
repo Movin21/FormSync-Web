@@ -96,7 +96,7 @@ const HomePage = () => {
                 transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut' }}
               >
                 <Sparkles size={14} className="text-brand-600 animate-pulseSoft" />
-                <span className="text-xs font-semibold uppercase tracking-widest text-brand-700">Research Project 2024/25</span>
+                <span className="text-xs font-semibold uppercase tracking-widest text-brand-700">Research Project 2025/26</span>
               </motion.div>
             </motion.div>
 

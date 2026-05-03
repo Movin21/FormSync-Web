@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Calendar, Award, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
+import { ChevronDown, Calendar, CheckCircle2, Clock, AlertCircle } from 'lucide-react';
 
 /* ─── Milestones Data ───────────────────────────────────────────── */
 const MILESTONES = [
   {
     id: 'proposal',
     title: 'Proposal',
-    date: '2026-01-20',
-    submissionDate: '2026-01-18',
+    date: '2025-09-19',
+    submissionDate: null,
     marks: 87,
     maxMarks: 100,
     status: 'completed',
@@ -28,8 +28,8 @@ const MILESTONES = [
   {
     id: 'progress1',
     title: 'Progress Presentation 1',
-    date: '2026-02-28',
-    submissionDate: '2026-02-26',
+    date: '2026-01-05',
+    submissionDate: null,
     marks: 83,
     maxMarks: 100,
     status: 'completed',
@@ -48,8 +48,8 @@ const MILESTONES = [
   {
     id: 'progress2',
     title: 'Progress Presentation 2',
-    date: '2026-03-25',
-    submissionDate: '2026-03-23',
+    date: '2026-03-09',
+    submissionDate: null,
     marks: 79,
     maxMarks: 100,
     status: 'completed',
@@ -67,34 +67,20 @@ const MILESTONES = [
   },
   {
     id: 'final',
-    title: 'Final Assessment',
-    date: '2026-05-10',
+    title: 'Final PP & Viva',
+    date: '2026-05-04',
     submissionDate: null,
     marks: null,
     maxMarks: 100,
     status: 'upcoming',
     description:
-      'Final project assessment including complete system demonstration, research paper submission, and comprehensive evaluation results covering all research objectives.',
+      'Final project presentation and viva voce examination. Includes complete system demonstration, research paper submission, comprehensive evaluation results, and an oral defence of the research findings before the examination panel.',
     checklist: [
       'Complete system implemented & deployed',
       'Research paper submitted',
       'Full evaluation study completed',
       'All documentation finalised',
       'Research poster prepared',
-    ],
-    feedback: null,
-  },
-  {
-    id: 'viva',
-    title: 'Viva Presentation',
-    date: '2026-05-20',
-    submissionDate: null,
-    marks: null,
-    maxMarks: 100,
-    status: 'upcoming',
-    description:
-      'Final oral examination (viva voce) where the research team defends the project findings, contributions, and methodology before the examination panel.',
-    checklist: [
       'Research contributions clearly articulated',
       'Technical Q&A preparation completed',
       'Live demo environment ready',
@@ -121,8 +107,6 @@ const MilestoneCard = ({ milestone, index }) => {
   const [open, setOpen] = useState(false);
   const cfg      = STATUS_CONFIG[milestone.status];
   const CfgIcon  = cfg.icon;
-  const pct      = milestone.marks != null ? Math.round((milestone.marks / milestone.maxMarks) * 100) : null;
-
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -152,11 +136,6 @@ const MilestoneCard = ({ milestone, index }) => {
                 <span className="flex items-center gap-1 text-xs text-neutral-500">
                   <Calendar size={11} />{formatDate(milestone.date)}
                 </span>
-                {milestone.marks != null && (
-                  <span className="flex items-center gap-1 text-xs font-semibold text-brand-700">
-                    <Award size={11} />{milestone.marks}/{milestone.maxMarks} ({pct}%)
-                  </span>
-                )}
               </div>
             </div>
           </div>
@@ -221,22 +200,6 @@ const MilestoneCard = ({ milestone, index }) => {
                       ))}
                     </ul>
 
-                    {pct != null && (
-                      <div className="mt-5">
-                        <div className="flex justify-between text-xs font-semibold mb-1.5">
-                          <span className="text-neutral-500">Score</span>
-                          <span className="text-brand-700">{milestone.marks}/{milestone.maxMarks}</span>
-                        </div>
-                        <div className="h-2 rounded-full bg-neutral-100 overflow-hidden">
-                          <motion.div
-                            className="h-full rounded-full bg-gradient-to-r from-brand-500 to-indigo-500"
-                            initial={{ width: 0 }}
-                            animate={{ width: `${pct}%` }}
-                            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.1 }}
-                          />
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
@@ -249,9 +212,7 @@ const MilestoneCard = ({ milestone, index }) => {
 };
 
 /* ─── Summary stats ─────────────────────────────────────────────── */
-const completed  = MILESTONES.filter((m) => m.status === 'completed');
-const totalMarks = completed.reduce((s, m) => s + (m.marks || 0), 0);
-const avgMark    = completed.length ? Math.round(totalMarks / completed.length) : 0;
+const completed = MILESTONES.filter((m) => m.status === 'completed');
 
 /* ─── Page ──────────────────────────────────────────────────────── */
 const MilestonesPage = () => (
@@ -276,12 +237,11 @@ const MilestonesPage = () => (
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto"
+          className="mt-10 grid grid-cols-2 gap-4 max-w-xs mx-auto"
         >
           {[
-            { label: 'Completed',  value: completed.length },
-            { label: 'Upcoming',   value: MILESTONES.length - completed.length },
-            { label: 'Avg. Score', value: avgMark ? `${avgMark}%` : '—' },
+            { label: 'Completed', value: completed.length },
+            { label: 'Upcoming',  value: MILESTONES.length - completed.length },
           ].map((s) => (
             <div key={s.label} className="rounded-2xl bg-white border border-brand-100 p-4 shadow-card">
               <div className="text-2xl font-extrabold text-brand-700">{s.value}</div>

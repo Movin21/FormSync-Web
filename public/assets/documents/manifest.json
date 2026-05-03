@@ -40,8 +40,17 @@
     "available": true
   },
   {
-    "name": "Final Research Log",
-    "file": "Research_Log.pdf",
+    "name": "Individual Research Thesis",
+    "file": "Individual_Research_Thesis.pdf",
+    "type": "PDF",
+    "date": null,
+    "description": "Detailed research activity log maintained throughout the project lifecycle. Documents all key decisions, experiments, and findings.",
+    "available": false
+  },
+
+  {
+    "name": "Final Research Thesis",
+    "file": "Thesis.pdf",
     "type": "PDF",
     "date": null,
     "description": "Detailed research activity log maintained throughout the project lifecycle. Documents all key decisions, experiments, and findings.",
