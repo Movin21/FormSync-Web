@@ -72,7 +72,7 @@ const MILESTONES = [
     submissionDate: null,
     marks: null,
     maxMarks: 100,
-    status: 'upcoming',
+    status: 'completed',
     description:
       'Final project presentation and viva voce examination. Includes complete system demonstration, research paper submission, comprehensive evaluation results, and an oral defence of the research findings before the examination panel.',
     checklist: [
